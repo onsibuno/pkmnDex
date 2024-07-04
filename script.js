@@ -32,10 +32,10 @@ const contactApi = async () => {
         pkmnDescription = dataPkmnTransformed.flavor_text_entries[2].flavor_text ;
 
         for (const pkmnType of dataImageTransformed.types) {
-            nomType += '<img src="./' + pkmnType.type.name + '.png"> ' ;
+            nomType += '<img src="./images/' + pkmnType.type.name + '.png"> ' ;
         }
         
-        text += '<div class="pokemon"><p><img src="./3869.png"> ' + element.name +'<br>'+ nomType +'</p>' + '<img src=' + dataImageTransformed.sprites.front_default + ' class="sprite"><p class="description">' + pkmnDescription +  '</p></div>';
+        text += '<div class="pokemon"><p><img src="./images/3869.png"> ' + element.name +'<br>'+ nomType +'</p>' + '<img src=' + dataImageTransformed.sprites.front_default + ' class="sprite"><p class="description">' + pkmnDescription +  '</p></div>';
         nomType = "";
     }
     document.getElementById("liste").innerHTML = text;
