@@ -2,10 +2,10 @@ let listePokemon = document.querySelector;
 
 const contactApi = async () => {
 
-    const data = await fetch("https://pokeapi.co/api/v2/pokemon/");
-    console.log(data);
+    const data = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0");
+    // console.log(data);
     const dataTransformed = await data.json();
-    console.log(dataTransformed);
+    // console.log(dataTransformed);
 
     listePokemon.innerText = dataTransformed;
 
@@ -20,16 +20,16 @@ const contactApi = async () => {
 
         lienImage = element.url ;
         const dataImage = await fetch(lienImage);
-        console.log(dataImage);
+        // console.log(dataImage);
         const dataImageTransformed = await dataImage.json();
-        console.log(dataImageTransformed);
-        console.log(dataImageTransformed.sprites.back_default);
+        // console.log(dataImageTransformed);
+        // console.log(dataImageTransformed.sprites.back_default);
 
         lienDescription = dataImageTransformed.species.url;
         const dataPkmn = await fetch(lienDescription);
         const dataPkmnTransformed = await dataPkmn.json();
-        console.log(dataPkmnTransformed);
-        pkmnDescription = dataPkmnTransformed.flavor_text_entries[2].flavor_text ;
+        // console.log(dataPkmnTransformed);
+        pkmnDescription = dataPkmnTransformed.flavor_text_entries[3].flavor_text ;
 
         for (const pkmnType of dataImageTransformed.types) {
             nomType += '<img src="./images/' + pkmnType.type.name + '.png"> ' ;
