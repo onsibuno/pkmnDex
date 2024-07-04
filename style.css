@@ -1,0 +1,124 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 0px;
+}
+
+section{  
+    border: 3px solid rgb(198, 181, 140);
+    border-radius: 15px;
+    background-image: url("./backgroundpokedex.png");
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    color: rgb(255, 255, 236);
+    width: 100%;
+    height: 80px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background: rgb(198, 181, 140);
+    /* background: radial-gradient(circle, rgba(59,59,59,1) 0%, rgba(30,30,30,1) 100%); */
+}
+
+
+#liste{
+    color: rgb(56,56,56);
+    font-size: larger;
+    display: grid;
+    grid: auto-flow / 1fr 1fr 1fr;
+    align-self: center;
+    width: 100%;
+    max-width: 1147px;
+    list-style: decimal;
+    
+}
+
+.pokemon{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 170px;
+    /* width: auto; */
+    max-width: 296px;
+    border: 2px solid rgb(198, 181, 140);
+    margin: 10px 5px 10px 5px;
+    padding: 10px 10px 0px 10px;
+    background-color: white;
+    border-radius: 25px 25px 0px 0px;
+    box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.2);
+}
+
+p{
+    text-transform: capitalize;
+    background-color: white;
+    /* width: 200px; */
+    padding: 2px 10px 2px 10px;
+    border: 0px solid rgb(198, 181, 140);
+    border-radius: 15px 15px 0px 0px;
+    font-weight: 400;
+    text-justify: auto;
+    z-index: 1;
+    transform: translateY(-20px);
+}
+
+.description{
+    align-self: flex-end;
+    background-color: rgb(198, 181, 140);
+    font-size: smaller;
+    /* transform: translateY(5px); */
+}
+
+.sprite{
+    border: 0px solid red;
+    height: 96px;
+    width: 96px;
+    background-color: rgb(198, 181, 140);
+    border-radius: 50px;
+    z-index: 2;
+    margin-right: 0px;
+}
+
+@keyframes couleurHover{
+    0%{
+        background-color: rgb(198, 181, 140);
+    }
+    35%{
+        background-color: rgb(214, 165, 123);
+    }
+    75%{
+        background-color: rgb(231, 148, 123);
+    }
+    100%{
+        background-color: rgb(247, 132, 107);
+    }
+}
+@keyframes borderHover{
+    0%{
+        border-color: rgb(198, 181, 140);
+    }
+    35%{
+        border-color: rgb(214, 165, 123);
+    }
+    75%{
+        border-color: rgb(231, 148, 123);
+    }
+    100%{
+        border-color: rgb(247, 132, 107);
+    }
+}
+
+
+.pokemon:hover{
+    animation-duration: 0.2s;
+    animation-name: borderHover;
+    animation-fill-mode: forwards;
+}
+
+.pokemon:hover .sprite{
+    animation-duration: 0.2s;
+    animation-name: couleurHover;
+    animation-fill-mode: forwards;
+}
