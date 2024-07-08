@@ -31,7 +31,7 @@ h1{
     width: 100%;
     max-width: 1147px;
     list-style: decimal;
-    
+    padding-bottom: 15px;
 }
 
 .pokemon{
