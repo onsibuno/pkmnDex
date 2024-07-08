@@ -1,10 +1,15 @@
+@font-face {
+    font-family: PKMN;
+    src: url(./PKMN-Mystery-Dungeon.ttf);
+}
+
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: PKMN, Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 0px;
 }
 
 section{  
-    border: 3px solid rgb(198, 181, 140);
+    border: 4px solid rgb(198, 181, 140);
     border-radius: 15px;
     background-image: url("./images/backgroundpokedex.png");
     display: flex;
@@ -13,6 +18,7 @@ section{
 
 h1{
     color: rgb(255, 255, 236);
+    font-size: xx-large;
     width: 100%;
     height: 80px;
     display: grid;
@@ -24,7 +30,7 @@ h1{
 
 #liste{
     color: rgb(56,56,56);
-    font-size: larger;
+    font-size: xx-large;
     display: grid;
     grid: auto-flow / 1fr 1fr 1fr;
     align-self: center;
@@ -40,9 +46,10 @@ h1{
     flex-wrap: wrap;
     justify-content: space-between;
     height: auto;
-    max-height: 210px;
+    max-height: 250px;
     max-width: 296px;
-    border: 3px solid rgb(198, 181, 140);
+    border: 4px solid rgb(198, 181, 140);
+    
     margin: 10px 5px 0px 5px;
     padding: 0px;
     background-color: white;
@@ -58,7 +65,6 @@ p{
     margin-top: 30px;
     padding: 2px 10px 2px 10px;
     border: 0px solid rgb(198, 181, 140);
-    
     font-weight: 400;
     text-justify: auto;
     z-index: 1;
@@ -74,10 +80,10 @@ p img{
     margin: 0px;
     padding-top: 5px;
     background-color: rgb(231, 222, 198);
-    border-top: 2px solid rgb(123, 99, 57);
+    border-top: 3px solid rgb(123, 99, 57);
     border-bottom: 100px solid rgb(231, 222, 198);
-    font-size: smaller;
-    width: 296px;
+    font-size: x-large;
+    width: 297px;
     text-align: justify;
     text-justify: inter-word;
 }
@@ -108,6 +114,16 @@ p img{
         background-color: rgb(247, 132, 107);
     }
 }
+@keyframes linkHover{
+    0%{
+        color: rgb(0,0,0);
+        text-shadow: 1px 1px 0px transparent;
+    }
+    100%{
+        color: rgb(247, 132, 107);
+        text-shadow: 1px 1px 0px black;
+    }
+}
 @keyframes borderHover{
     0%{
         border-color: rgb(198, 181, 140);
@@ -125,7 +141,7 @@ p img{
 
 
 .pokemon:hover{
-    animation-duration: 0.2s;
+    animation-duration: 0.4s;
     animation-name: borderHover;
     animation-fill-mode: forwards;
 }
@@ -133,5 +149,36 @@ p img{
 .pokemon:hover .sprite{
     animation-duration: 0.2s;
     animation-name: couleurHover;
+    animation-fill-mode: forwards;
+}
+
+#footer{
+    margin-top: 10px;
+    background-image: url("./images/fond_footer.png");
+    display: flex;
+    flex-direction: column;
+    border-width: 8px;
+    border-image-source: url(./images/3858.png);
+    border-image-slice: 8;
+    border-image-repeat: round;
+    display: flex;
+    height: 100px;
+    justify-content: flex-end;
+}
+
+#footer p{
+    background: none;
+    font-size: x-large;
+    text-align: center;
+    
+}
+
+a{
+    color: rgb(0,0,0);
+}
+
+a:hover{
+    animation-duration: 0.2s;
+    animation-name: linkHover;
     animation-fill-mode: forwards;
 }
