@@ -8,10 +8,16 @@
     padding-left: 0px;
 }
 
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 section{  
     border: 4px solid rgb(198, 181, 140);
     border-radius: 15px;
     background-image: url("./images/backgroundpokedex.png");
+    grid-column: 1 / span 4;
     display: flex;
     flex-direction: column;
 }
@@ -49,7 +55,6 @@ h1{
     max-height: 250px;
     max-width: 296px;
     border: 4px solid rgb(198, 181, 140);
-    
     margin: 10px 5px 0px 5px;
     padding: 0px;
     background-color: white;
@@ -86,6 +91,7 @@ p img{
     width: 297px;
     text-align: justify;
     text-justify: inter-word;
+    text-transform: none;
 }
 
 .sprite{
@@ -154,23 +160,26 @@ p img{
 
 #footer{
     margin-top: 10px;
-    background-image: url("./images/fond_footer.png");
-    display: flex;
-    flex-direction: column;
+    background-image: none;
+    display: grid;
+    grid-template-rows: 0.1fr 5fr 0.1fr;
     border-width: 8px;
-    border-image-source: url(./images/3858.png);
+    border-image-source: url(./images/bordure-rouge.png);
     border-image-slice: 8;
     border-image-repeat: round;
-    display: flex;
-    height: 100px;
-    justify-content: flex-end;
+    grid-column: 2 / span 2;
 }
 
 #footer p{
     background: none;
     font-size: x-large;
     text-align: center;
-    
+    grid-row: 2;
+    place-self: center;
+    height: 80px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    text-transform: none;
 }
 
 a{
