@@ -63,6 +63,10 @@ h1{
     box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.2);
 }
 
+
+
+
+
 p{
     text-transform: capitalize;
     background-color: white;
@@ -200,4 +204,24 @@ a:hover{
     animation-duration: 0.2s;
     animation-name: linkHover;
     animation-fill-mode: forwards;
+}
+
+@keyframes couleursPlaceholder{
+    0%{
+        background-color: white;
+    }
+    50%{
+        background-color: rgb(123, 99, 57)
+    }
+    100%{
+        background-color: white;
+    }
+}
+
+#placeholder{
+    animation-name: couleursPlaceholder;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    
 }

@@ -1,4 +1,4 @@
-let total = 3;
+let total = 0;
 let boxPKMN = "";
 let premierPKMN = 1;
 let spriteGen = "";
