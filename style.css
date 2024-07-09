@@ -163,11 +163,21 @@ p img{
     background-image: none;
     display: grid;
     grid-template-rows: 0.1fr 5fr 0.1fr;
+    grid-column: 2 / span 2;
+}
+
+#footer.FireRed{
     border-width: 8px;
     border-image-source: url(./images/bordure-rouge.png);
     border-image-slice: 8;
     border-image-repeat: round;
-    grid-column: 2 / span 2;
+}
+
+#footer.Heartgold{
+    border-width: 16px;
+    border-image-source: url(./images/bordure-heartgold.png);
+    border-image-slice: 16 20 16 16;
+    border-image-repeat: round;
 }
 
 #footer p{

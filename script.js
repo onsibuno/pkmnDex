@@ -1,6 +1,26 @@
-let total = 151;
+let total = 3;
 let boxPKMN = "";
 let premierPKMN = 1;
+let spriteGen = "";
+
+let boutonKanto = document.getElementById('kantoBtn');
+
+/* if (heartgold = true) {
+    document.querySelector('h1').innerText = 'Johto's Regional Pokédex';
+    document.getElementById('footer').setAttribute("class", "Heartgold");
+    spriteGen = "dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default";
+    document.querySelector('img').style.width = '80px';
+    document.querySelector('img').style.height = '80px';
+    total = 251;
+    premierPKMN = 152;
+} else {
+    document.querySelector('h1').innerText = 'Kanto's Regional Pokédex';
+    spriteGen = dataTransformed.sprites.front_default;
+    total = 151;
+    premierPKMN = 1;
+} */
+
+
 
 const contactApi = async () => {
     for (let offset = premierPKMN; offset <= total; offset++) {
@@ -28,10 +48,12 @@ const contactApi = async () => {
 
         boxPKMN = '<div class="pokemon"><p><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src=' + dataTransformed.sprites.front_default + ' class="sprite"><p class="description">' + pkmnDescription + '</p></div>';
         document.getElementById("liste").innerHTML += boxPKMN;   
-        // console.log(dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default)
+        // console.log()
     }
 }
 
 
     contactApi();
 
+
+    
