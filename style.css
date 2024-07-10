@@ -13,13 +13,97 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-section{  
+#maps{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 40px 1fr 40px;
+}
+#maps #instructions{
+    grid-column: 2 / span 2;
+    place-self: center;
+}
+#maps .Kanto{
+    grid-row: 2;
+    grid-column: 2;
+    place-self: center;
+    
+    border: 8px solid transparent;
+    border-width: 8px;
+    border-image-source: url(./images/bordure-rouge.png);
+    border-image-slice: 8;
+    border-image-repeat: round;
+    
+}
+#kantoHover{
+    z-index: 2;
+    grid-column: 2;
+    grid-row: 2;
+    width: 192px;
+    height: 144px;
+    place-self: center;
+}
+#kantoHover:hover{
+    background: linear-gradient(245deg, rgba(255,255,255,0.07324936810661764) 3%, rgba(255,255,255,0.5774510487788865) 13%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 78%, rgba(255,255,255,0.6418768190870099) 81%, rgba(255,255,255,0) 83%);
+    box-shadow: inset 4px 4px 5px white, inset -4px -4px 5px white;
+}
+#kantoText{
+    font-size: xx-large;
+    grid-column: 2;
+    grid-row: 3;
+    place-self: center;
+}
+#maps .Johto{
+    grid-column: 3;
+    grid-row: 2;
+    width: 192px;
+    height: 144px;
+    place-self: center;
+    border: 8px solid transparent;
+    border-width: 8px 16px 8px 8px;
+    border-image-source: url(./images/bordure-soulsilver.png);
+    border-image-slice: 10 26 10 12;
+    border-image-repeat: round;
+    
+}
+#johtoHover{
+    z-index: 2;
+    grid-column: 3;
+    grid-row: 2;
+    width: 192px;
+    height: 144px;
+    place-self: center;
+    transform: translateX(-4px);
+}
+#johtoHover:hover{
+    background: linear-gradient(146deg, rgba(255,255,255,0.07324936810661764) 3%, rgba(255,255,255,0.5774510487788865) 13%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 78%, rgba(255,255,255,0.6418768190870099) 81%, rgba(255,255,255,0) 83%);
+    box-shadow: inset 4px 4px 5px white, inset -4px -4px 5px white;
+
+    
+}
+
+#maps .Johto{
+    grid-row: 2;
+    grid-column: 3;
+    place-self: center;
+    font-size: xx-large;
+}
+#johtoText{
+    font-size: xx-large;
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: center;
+    align-self: center;   
+}
+
+
+section{
     border: 4px solid rgb(198, 181, 140);
     border-radius: 15px;
     background-image: url("./images/backgroundpokedex.png");
     grid-column: 1 / span 4;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 h1{
@@ -31,10 +115,11 @@ h1{
     align-items: center;
     text-align: center;
     background: rgb(198, 181, 140);
+    margin-top: 10px;
 }
 
 
-#liste{
+#pokemons{
     color: rgb(56,56,56);
     font-size: xx-large;
     display: grid;
@@ -44,70 +129,80 @@ h1{
     max-width: 1147px;
     list-style: decimal;
     padding-bottom: 15px;
+    
 }
 
 .pokemon{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    place-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     height: auto;
-    max-height: 250px;
+    max-height: 255 px;
     max-width: 296px;
     border: 4px solid rgb(198, 181, 140);
     margin: 10px 5px 0px 5px;
     padding: 0px;
     background-color: white;
-    border-radius: 25px 25px 25px 25px;
+    border-radius: 25px;
     overflow: hidden;
     box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.2);
 }
 
-
-
-
-
-p{
+.pkmnInfos{
     text-transform: capitalize;
     background-color: white;
     margin-left: 10px;
-    margin-top: 30px;
-    padding: 2px 10px 2px 10px;
+    padding-left: 10px;
     border: 0px solid rgb(198, 181, 140);
     font-weight: 400;
     text-justify: auto;
     z-index: 1;
-    transform: translateY(-20px);
-}
 
-p img{
-    margin-top: 5px;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    height: 10px;
+    align-self: start;
+    transform: translateY(-30px);
 }
 
 .description{
-    
     margin: 0px;
-    padding-top: 5px;
+    padding: 5px 10px 5px 10px;
     background-color: rgb(231, 222, 198);
     border-top: 3px solid rgb(123, 99, 57);
-    border-bottom: 100px solid rgb(231, 222, 198);
     font-size: x-large;
-    width: 297px;
+    max-height: 125px;
+    overflow-y: auto;
+    scrollbar-color: rgb(123, 99, 57) #a89674;
+    scrollbar-width: thin;
     text-align: justify;
     text-justify: inter-word;
     text-transform: none;
+    grid-column: 1 / span 3;
+    grid-row: 2;
 }
 
 .sprite{
-    border: 0px solid red;
+    height: 96px;
+    width: 96px;
+    z-index: 2;
+    margin-top: 10px;
+    margin-right: 10px;
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.spriteBackground{
     height: 96px;
     width: 96px;
     background-color: rgb(198, 181, 140);
     border-radius: 50px;
-    z-index: 2;
+    z-index: 1;
     margin-top: 10px;
     margin-right: 10px;
-    margin-bottom: 30px;
+    grid-column: 3;
+    grid-row: 1;
 }
 
 @keyframes couleurHover{
@@ -156,44 +251,44 @@ p img{
     animation-fill-mode: forwards;
 }
 
-.pokemon:hover .sprite{
+.pokemon:hover .spriteBackground{
     animation-duration: 0.2s;
     animation-name: couleurHover;
     animation-fill-mode: forwards;
 }
 
-#footer{
+footer{
+    border: 4px solid transparent;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
     margin-top: 10px;
     background-image: none;
     display: grid;
-    grid-template-rows: 0.1fr 5fr 0.1fr;
     grid-column: 2 / span 2;
 }
 
-#footer.FireRed{
+footer p{
+    background: none;
+    font-size: x-large;
+    text-align: center;
+    grid-row: 2;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-transform: none;
+}
+
+footer.FireRed{
     border-width: 8px;
     border-image-source: url(./images/bordure-rouge.png);
     border-image-slice: 8;
     border-image-repeat: round;
 }
 
-#footer.Heartgold{
+footer.Heartgold{
     border-width: 16px;
     border-image-source: url(./images/bordure-heartgold.png);
     border-image-slice: 16 20 16 16;
     border-image-repeat: round;
-}
-
-#footer p{
-    background: none;
-    font-size: x-large;
-    text-align: center;
-    grid-row: 2;
-    place-self: center;
-    height: 80px;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    text-transform: none;
 }
 
 a{
@@ -223,5 +318,5 @@ a:hover{
     animation-duration: 5s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
-    
+    display: none;
 }

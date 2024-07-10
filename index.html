@@ -8,29 +8,33 @@
 </head>
 <body>
     <section id="pokedex">
-        <form action="">
-            <input type="button" value="Kanto">
-            <input type="button" value="Johto">
-        </form>
+        <div id="maps">
+            <div id="kantoHover"></div>
+            <p id="instructions">click on a map to load the pokémons native of that region (not yet functional)</p>
+            <img class="Kanto" src="./images/Kanto.png" alt="map of the Kanto region in pokémon FireRed">
+            <p id="kantoText">Kanto</p>
+            <div id="johtoHover"></div>
+            <img class="Johto" src="./images/Johto.png" alt="map of the Johto region in pokémon HeartGold">
+            <p id="johtoText">Johto</p>
+        </div>
         <h1>Kanto's Regional Pokédex</h1>
         <div id="liste"> 
-           <div class="pokemon" id="placeholder">
-            <p>
+            <div class="pokemon" id="placeholder">
+                <p></p>
+                <p class="description"></p>
+            </div>
+            <div id="pokemons"></div>
+           
 
-            </p>
-            <p class="description">
-
-            </p>
-           </div>
         </div>
     </section>
-    <section id="footer" class="Heartgold">
+    <footer class="FireRed">
         <p>
             All information are from <a href="https://pokeapi.co/" target="_blank">PokéAPI</a><br>
             The font used is <a href="https://www.dafont.com/fr/pkmn-mystery-dungeon.font" target="_blank">PKMN Mystery Dungeon</a><br>
             the GitHub repository is accessible <a href="https://github.com/onsibuno/pkmnDex" target="_blank">here</a>
         </p>
-    </section>
+    </footer>
     
     <script src="script.js"></script>
 </body>

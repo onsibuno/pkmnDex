@@ -1,9 +1,10 @@
-let total = 0;
+let total = 151;
 let boxPKMN = "";
 let premierPKMN = 1;
 let spriteGen = "";
 
 let boutonKanto = document.getElementById('kantoBtn');
+
 
 /* if (heartgold = true) {
     document.querySelector('h1').innerText = 'Johto's Regional Pokédex';
@@ -13,16 +14,21 @@ let boutonKanto = document.getElementById('kantoBtn');
     document.querySelector('img').style.height = '80px';
     total = 251;
     premierPKMN = 152;
+
 } else {
     document.querySelector('h1').innerText = 'Kanto's Regional Pokédex';
     spriteGen = dataTransformed.sprites.front_default;
     total = 151;
     premierPKMN = 1;
+
 } */
 
 
 
-const contactApi = async () => {
+const contactApi = async (clear = false) => {
+    document.getElementById("pokemons").innerHTML = ""; 
+    document.getElementById('placeholder').style.display = 'block';
+
     for (let offset = premierPKMN; offset <= total; offset++) {
         const data = await fetch("https://pokeapi.co/api/v2/pokemon/"+offset);
         console.log(data);
@@ -46,10 +52,13 @@ const contactApi = async () => {
             nomType += '<img src="./images/' + pkmnType.type.name + '.png"> ';
         }
 
-        boxPKMN = '<div class="pokemon"><p><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src=' + dataTransformed.sprites.front_default + ' class="sprite"><p class="description">' + pkmnDescription + '</p></div>';
-        document.getElementById("liste").innerHTML += boxPKMN;   
+        boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src=' + dataTransformed.sprites.front_default + ' class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
+        
+        document.getElementById("pokemons").innerHTML += boxPKMN;   
         // console.log()
     }
+    document.getElementById('placeholder').style.display = 'none';
+    
 }
 
 
