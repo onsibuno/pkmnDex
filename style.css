@@ -124,6 +124,7 @@ h1{
     font-size: xx-large;
     display: grid;
     grid: auto-flow / 1fr 1fr 1fr;
+    grid-template-rows: 260px;
     align-self: center;
     width: 100%;
     max-width: 1147px;
@@ -138,7 +139,7 @@ h1{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     height: auto;
-    max-height: 255 px;
+    max-height: 255px;
     max-width: 296px;
     border: 4px solid rgb(198, 181, 140);
     margin: 10px 5px 0px 5px;
