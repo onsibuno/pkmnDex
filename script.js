@@ -44,13 +44,17 @@ const contactApi = async (gen, taille, translate) => {
         // console.log(dataPkmnTransformed);
         pkmnDescription = dataPkmnTransformed.flavor_text_entries[8].flavor_text;
 
-        for (const pkmnType of dataTransformed.types) {
-            nomType += '<img src="./images/' + pkmnType.type.name + '.png"> ';
-        }
+        
         if(gen == 'firered'){
-            boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
+            for (const pkmnType of dataTransformed.types) {
+                nomType += '<img src="./images/' + pkmnType.type.name + '.png"> ';
+            }
+            boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/caught.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
         } else if(gen == 'heartgold'){
-            boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
+            for (const pkmnType of dataTransformed.types) {
+                nomType += '<img src="./images/' + pkmnType.type.name + '_hgss.png"> ';
+            }
+            boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/caught_hgss.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
         }
         
         document.getElementById("pokemons").innerHTML += boxPKMN;
