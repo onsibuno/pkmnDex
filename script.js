@@ -1,31 +1,27 @@
-let total = 151;
+let total = 3;
 let boxPKMN = "";
 let premierPKMN = 1;
-let spriteGen = "";
 
-let boutonKanto = document.getElementById('kantoBtn');
-
-
-/* if (heartgold = true) {
-    document.querySelector('h1').innerText = 'Johto's Regional Pokédex';
-    document.getElementById('footer').setAttribute("class", "Heartgold");
-    spriteGen = "dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default";
-    document.querySelector('img').style.width = '80px';
-    document.querySelector('img').style.height = '80px';
-    total = 251;
-    premierPKMN = 152;
-
-} else {
-    document.querySelector('h1').innerText = 'Kanto's Regional Pokédex';
-    spriteGen = dataTransformed.sprites.front_default;
+let boutonKanto = document.getElementById('kantoHover');
+boutonKanto.addEventListener('click', () => {
+    console.log("click bouton kanto")
+    document.querySelector('h1').innerText = 'Kanto\'s Regional Pokedex';
+    document.querySelector('footer').setAttribute("class", "FireRed");
     total = 151;
     premierPKMN = 1;
+    contactApi('firered','96px', 'translateX(-10px)');
+});
+let boutonJohto = document.getElementById('johtoHover');
+boutonJohto.addEventListener('click', () => {
+    console.log("click bouton johto");
+    document.querySelector('h1').innerText = 'Johto\'s Regional Pokedex';
+    document.querySelector('footer').setAttribute("class", "Heartgold");
+    total = 251;
+    premierPKMN = 152;
+    contactApi('heartgold','80px', 'translateY(-5px)');
+w});
 
-} */
-
-
-
-const contactApi = async (clear = false) => {
+const contactApi = async (gen, taille, translate) => {
     document.getElementById("pokemons").innerHTML = ""; 
     document.getElementById('placeholder').style.display = 'block';
 
@@ -51,18 +47,32 @@ const contactApi = async (clear = false) => {
         for (const pkmnType of dataTransformed.types) {
             nomType += '<img src="./images/' + pkmnType.type.name + '.png"> ';
         }
-
-        boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src=' + dataTransformed.sprites.front_default + ' class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
+        if(gen == 'firered'){
+            boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
+        } else if(gen == 'heartgold'){
+            boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
+        }
         
         document.getElementById("pokemons").innerHTML += boxPKMN;   
         // console.log()
     }
     document.getElementById('placeholder').style.display = 'none';
-    
+    let sprites = document.getElementsByClassName("sprite");
+    for (let sprite of sprites) {
+        sprite.style.width = taille;
+        sprite.style.height = taille;
+        sprite.style.transform = translate;
+    }
+    let spritesBackgrounds = document.getElementsByClassName("spriteBackground");
+    for (let spriteBackground of spritesBackgrounds) {
+        spriteBackground.style.width = taille;
+        spriteBackground.style.height = taille;
+        spriteBackground.style.transform = translate;
+    }
 }
 
 
-    contactApi();
+    
 
 
     

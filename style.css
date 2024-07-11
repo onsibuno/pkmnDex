@@ -4,7 +4,7 @@
 }
 
 *{
-    font-family: PKMN, Verdana, Geneva, Tahoma, sans-serif;
+    font-family:   PKMN, sans-serif;
     padding-left: 0px;
 }
 
@@ -14,37 +14,55 @@ body{
 }
 
 @keyframes opacity {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+    0%{opacity: 0;}
+    100%{opacity: 0.9;}
+}
+@keyframes couleurHover{
+    0%{background-color: rgb(198, 181, 140);}
+    35%{background-color: rgb(214, 165, 123);}
+    75%{background-color: rgb(231, 148, 123);}
+    100%{background-color: rgb(247, 132, 107);}
+}
+@keyframes linkHover{
+    0%{ color: rgb(0,0,0);
+        text-shadow: 1px 1px 0px transparent;}
+    100%{color: rgb(247, 132, 107);
+         text-shadow: 1px 1px 0px black;}
+}
+@keyframes borderHover{
+    0%{border-color: rgb(198, 181, 140);}
+    35%{border-color: rgb(214, 165, 123);}
+    75%{border-color: rgb(231, 148, 123);}
+    100%{border-color: rgb(247, 132, 107);}
+}
+@keyframes loadingPlaceholder{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
 }
 
 #maps{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40px 160px 40px;
+    grid-template-rows: 40px 1fr;
+    align-items: center;
+    justify-items: center;
     column-gap: 30px;
+    text-align: center;
 }
 #maps #instructions{
     grid-column: 2 / span 2;
-    place-self: center;
 }
 #maps .Kanto{
     grid-row: 2;
     grid-column: 2;
-    place-self: center;
     border: 8px solid transparent;
     border-width: 16px 24px 16px 24px;
     border-image-source: url(./images/3864.png);
     border-image-slice: 16 24 0 24;
     border-image-repeat: round;
-    
 }
 #kantoHover{
-    z-index: 2;
+    z-index: 3;
     grid-column: 2;
     grid-row: 2;
     width: 192px;
@@ -57,25 +75,17 @@ body{
     animation: opacity 0.2s ease-in alternate both;
 }
 #kantoText{
-    font-size: xx-large;
+    font-size: x-large;
     grid-column: 2;
-    grid-row: 3;
-    place-self: center;
-    text-align: center;
-    height: 20px;
-    width: 100px;
-    border: 8px solid transparent;
-    border-width: 8px;
-    border-image-source: url(./images/3858.png);
-    border-image-slice: 8;
-    border-image-repeat: round;
+    grid-row: 2;
+    z-index: 2;
+    width: 192px;
+    text-shadow: 1px 1px grey;
+    background-color: rgba(255, 255, 255, 0.8);    
 }
 #maps .Johto{
     grid-column: 3;
     grid-row: 2;
-    width: 192px;
-    height: 144px;
-    place-self: center;
     border: 8px solid transparent;
     border-width: 8px 56px 7px 8px;
     border-image-source: url(./images/27100.png);
@@ -84,12 +94,11 @@ body{
     transform: translateY(-8px);
 }
 #johtoHover{
-    z-index: 2;
+    z-index: 3;
     grid-column: 3;
     grid-row: 2;
     width: 192px;
     height: 144px;
-    place-self: center;
     transform: translateX(-24px) translateY(-7px) ;
 }
 #johtoHover:hover{
@@ -97,27 +106,16 @@ body{
     box-shadow: inset 6px 6px 5px white, inset -6px -6px 5px white;
     animation: opacity 0.2s ease-in alternate both;    
 }
-
-#maps .Johto{
-    grid-row: 2;
-    grid-column: 3;
-    place-self: center;
-    font-size: xx-large;
-}
 #johtoText{
     font-size: xx-large;
-    grid-column: 3;
-    grid-row: 3;
-    justify-self: center;
-    align-self: center;
-    text-align: center;
-    height: 20px;
-    width: 100px;
-    border: 8px solid transparent;
-    border-width: 8px 9px 9px 8px;
-    border-image-source: url(./images/30542.png);
-    border-image-slice: 8 9 9 8 fill;
-    border-image-repeat: round;
+    grid-column: 3;    
+    font-size: x-large;
+    grid-row: 2;
+    z-index: 2;
+    width: 192px;
+    text-shadow: 1px 1px grey;
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateX(-24px);
 }
 
 
@@ -133,6 +131,7 @@ section{
 
 h1{
     color: rgb(255, 255, 236);
+    text-transform: uppercase;
     font-size: xx-large;
     width: 100%;
     height: 80px;
@@ -161,11 +160,11 @@ h1{
 .pokemon{
     place-self: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 98px 98px 98px;
+    column-gap: 1px;
+    grid-template-rows: 110px 100px;
+    row-gap: 1px;
     height: auto;
-    max-height: 255px;
-    max-width: 296px;
     border: 4px solid rgb(198, 181, 140);
     margin: 10px 5px 0px 5px;
     padding: 0px;
@@ -213,63 +212,21 @@ h1{
     height: 96px;
     width: 96px;
     z-index: 2;
-    margin-top: 10px;
-    margin-right: 10px;
+    place-self: center;
     grid-column: 3;
     grid-row: 1;
 }
 
 .spriteBackground{
-    height: 96px;
-    width: 96px;
+    height: 80px;
+    width: 80px;
     background-color: rgb(198, 181, 140);
     border-radius: 50px;
     z-index: 1;
-    margin-top: 10px;
-    margin-right: 10px;
+    place-self: center;
     grid-column: 3;
     grid-row: 1;
 }
-
-@keyframes couleurHover{
-    0%{
-        background-color: rgb(198, 181, 140);
-    }
-    35%{
-        background-color: rgb(214, 165, 123);
-    }
-    75%{
-        background-color: rgb(231, 148, 123);
-    }
-    100%{
-        background-color: rgb(247, 132, 107);
-    }
-}
-@keyframes linkHover{
-    0%{
-        color: rgb(0,0,0);
-        text-shadow: 1px 1px 0px transparent;
-    }
-    100%{
-        color: rgb(247, 132, 107);
-        text-shadow: 1px 1px 0px black;
-    }
-}
-@keyframes borderHover{
-    0%{
-        border-color: rgb(198, 181, 140);
-    }
-    35%{
-        border-color: rgb(214, 165, 123);
-    }
-    75%{
-        border-color: rgb(231, 148, 123);
-    }
-    100%{
-        border-color: rgb(247, 132, 107);
-    }
-}
-
 
 .pokemon:hover{
     animation-duration: 0.4s;
@@ -292,6 +249,8 @@ footer{
     background-image: none;
     display: grid;
     grid-column: 2 / span 2;
+    width: 450px;
+    place-self: center;
 }
 
 footer p{
@@ -328,22 +287,17 @@ a:hover{
     animation-fill-mode: forwards;
 }
 
-@keyframes couleursPlaceholder{
-    0%{
-        background-color: white;
-    }
-    50%{
-        background-color: rgb(123, 99, 57)
-    }
-    100%{
-        background-color: white;
-    }
-}
 
 #placeholder{
-    animation-name: couleursPlaceholder;
-    animation-duration: 5s;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite;
+    width: 100%;
+    text-align: center;
     display: none;
+}
+#placeholder img{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+    animation-name: loadingPlaceholder;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
