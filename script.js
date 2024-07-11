@@ -4,7 +4,7 @@ let premierPKMN = 1;
 
 let boutonKanto = document.getElementById('kantoHover');
 boutonKanto.addEventListener('click', () => {
-    console.log("click bouton kanto")
+    console.log("loading kanto pokemons")
     document.querySelector('h1').innerText = 'Kanto\'s Regional Pokedex';
     document.querySelector('footer').setAttribute("class", "FireRed");
     total = 151;
@@ -13,7 +13,7 @@ boutonKanto.addEventListener('click', () => {
 });
 let boutonJohto = document.getElementById('johtoHover');
 boutonJohto.addEventListener('click', () => {
-    console.log("click bouton johto");
+    console.log("loading johto pokemons");
     document.querySelector('h1').innerText = 'Johto\'s Regional Pokedex';
     document.querySelector('footer').setAttribute("class", "Heartgold");
     total = 251;
@@ -27,9 +27,9 @@ const contactApi = async (gen, taille, translate) => {
 
     for (let offset = premierPKMN; offset <= total; offset++) {
         const data = await fetch("https://pokeapi.co/api/v2/pokemon/"+offset);
-        console.log(data);
+        // console.log(data);
         const dataTransformed = await data.json();
-        console.log(dataTransformed);
+        // console.log(dataTransformed);
 
         let nomType = "";
         let lienDescription = "";
@@ -53,8 +53,7 @@ const contactApi = async (gen, taille, translate) => {
             boxPKMN = '<div class="pokemon"><p class="pkmnInfos"><img src="./images/3869.png"> ' + dataTransformed.name + '<br>' + nomType + '</p>' + '<img src="' + dataTransformed.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default + '" class="sprite"><div class="spriteBackground"></div><p class="description">' + pkmnDescription + '</p></div>';
         }
         
-        document.getElementById("pokemons").innerHTML += boxPKMN;   
-        // console.log()
+        document.getElementById("pokemons").innerHTML += boxPKMN;
     }
     document.getElementById('placeholder').style.display = 'none';
     let sprites = document.getElementsByClassName("sprite");
